@@ -15,6 +15,11 @@ spring:
       config:
         server-addr: ${nacos.config.server-addr}
         namespace: ${nacos.config.namespace}
+    # sentinel控制台端口
+    sentinel:
+      transport:
+        dashboard: localhost:9005
+        port: 8719
   # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -30,3 +35,7 @@ mybatis:
 mybatis-plus:
   # 配置实体类别名
   type-aliases-package: boot.wx.entity
+# feign整合sentinel
+feign:
+  sentinel:
+    enabled: true

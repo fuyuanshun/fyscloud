@@ -35,5 +35,17 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
             <version>${spring-cloud-alibaba.version}</version>
         </dependency>
+        <!-- cloud组件 start -->
+        <!-- 远程调用openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- 服务限流 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!-- cloud组件 end -->
     </dependencies>
 </project>

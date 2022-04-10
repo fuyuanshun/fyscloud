@@ -4,6 +4,7 @@ import boot.wx.constants.QuestionConstants;
 import boot.wx.entity.*;
 import boot.wx.persistence.QuestionAdminMapper;
 import boot.wx.service.IQuestionAdminService;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class QuestionAdminService implements IQuestionAdminService {
     private static final String ADMIN_PASSWORD = "chushimei";
 
     @Override
+    @SentinelResource("t")
     public CommentResult<String> login(String username, String password, HttpSession session) {
         if(ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password)){
             session.setAttribute("userName", ADMIN_USERNAME);

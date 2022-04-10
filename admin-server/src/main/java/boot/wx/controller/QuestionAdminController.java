@@ -4,6 +4,7 @@ import boot.wx.entity.*;
 import boot.wx.properties.UserInfoConfig;
 import boot.wx.service.IQuestionAdminService;
 import boot.wx.service.UserService;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

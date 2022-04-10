@@ -42,12 +42,19 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-        <!-- 数据库通用 start -->
+        <!-- cloud组件 start -->
         <!-- 远程调用openfeign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!-- 服务限流 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!-- cloud组件 end -->
+        <!-- 数据库通用 start -->
         <!-- druid数据源 -->
         <dependency>
             <groupId>com.alibaba</groupId>

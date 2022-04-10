@@ -25,6 +25,8 @@
         <springboot.version>2.3.4.RELEASE</springboot.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
+        <!-- cloud组件 -->
+        <sentinel.version>1.8.3</sentinel.version>
         <!-- 数据源 -->
         <druid.verison>1.2.4</druid.verison>
         <mysql.version>8.0.19</mysql.version>
@@ -76,12 +78,19 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- cloud组件 start -->
             <!-- 远程调用openfeign -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            <!-- cloud组件 end -->
             <!-- mysql -->
             <dependency>
                 <groupId>mysql</groupId>

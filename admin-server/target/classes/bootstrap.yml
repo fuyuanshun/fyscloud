@@ -16,6 +16,11 @@ spring:
         server-addr: ${nacos.config.server-addr}
         namespace: ${nacos.config.namespace}
         file-extension: yml
+    # sentinel控制台端口
+    sentinel:
+      transport:
+        dashboard: localhost:9005
+        port: 8719
   # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -38,11 +43,8 @@ ribbon:
   ReadTimeout: 2000
   # 指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 2000
-# feign日志
-logging:
-  level:
-    boot.wx.service.*: debug
-# 开启feign服务降级
+
+# feign整合sentinel
 feign:
-  hystrix:
+  sentinel:
     enabled: true

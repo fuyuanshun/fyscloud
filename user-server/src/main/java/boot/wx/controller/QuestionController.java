@@ -2,6 +2,7 @@ package boot.wx.controller;
 
 import boot.wx.entity.*;
 import boot.wx.service.IQuestionService;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,9 @@ public class QuestionController {
     private Integer port;
 
     @GetMapping("/test/remote/{str}")
+    @SentinelResource("t2")
     public String test(@PathVariable("str") String str){
-        return "this is user-server : " + port + " : " + str;
+            return "this is user-server : " + port + " : " + str;
     }
 
     /**
