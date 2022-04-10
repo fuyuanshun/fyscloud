@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="boot.wx.persistence.QuestionAdminMapper">
+    <!-- 添加题目 -->
+    <insert id="add" parameterType="QuestionEntity">
+        insert into
+         question_info
+         (question_type, question_content, selects, correct_select, create_time, select_type, question_comment, question_resolve)
+         values
+         (#{entity.questionType}, #{entity.questionContent}, #{entity.selects},
+         #{entity.correctSelect}, now(), #{entity.selectType}, #{entity.questionComment}, #{entity.questionResolve})
+    </insert>
+
+    <select id="findAllQuestions" resultType="QuestionEntity">
+        select t1.id, t2.name questionType, t1.question_content questionContent, t1.selects,
+        t1.select_type selectType,
+        t1.sorted, t1.create_time createTime, t1.question_comment questionComment,
+        (case when t3.id is null then 'false' else 'true' end) collectStatus
+        from question_info t1
+        left join question_type t2 on t1.question_type = t2.id
+        left join question_collected t3 on t1.id = t3.question_id
+        where t1.deleted = 0
+    </select>
+
+    <update id="deleteById">
+        update question_info set deleted = 1 where id = #{id}
+    </update>
+
+    <update id="updateById" parameterType="QuestionEntity">
+         update question_info
+         <set>
+              <if test="entity.questionType != null and entity.questionType != ''">
+                  question_type = #{entity.questionType},
+              </if>
+             <if test="entity.questionContent != null and entity.questionContent != ''">
+                 question_content = #{entity.questionContent},
+             </if>
+             <if test="entity.selects != null and entity.selects != ''">
+                 selects = #{entity.selects},
+             </if>
+             <if test="entity.correctSelect != null and entity.correctSelect != ''">
+                 correct_select = #{entity.correctSelect},
+             </if>
+             <if test="entity.selectType != null and entity.selectType != ''">
+                 select_type = #{entity.selectType},
+             </if>
+             <if test="entity.questionComment != null and entity.questionComment != ''">
+                 question_comment = #{entity.questionComment},
+             </if>
+             <if test="entity.questionResolve != null and entity.questionResolve != ''">
+                 question_resolve = #{entity.questionResolve},
+             </if>
+         </set>
+         where id = #{entity.id}
+    </update>
+
+    <select id="findAllQuestionTypes" resultType="QuestionTypeEntity">
+        select id, name questiontype from question_type where deleted = 0
+    </select>
+
+    <insert id="addQuestionType" parameterType="String">
+        insert into question_type (name, create_time, deleted) values (#{name}, now(), 0)
+    </insert>
+
+    <update id="deleteQuestionType" parameterType="Integer">
+        update question_type set deleted = 1 where id = #{id}
+    </update>
+
+    <update id="updateQuestionType">
+        update question_type set name = #{name} where id = #{id} and deleted = 0
+    </update>
+
+    <insert id="addQuestionFile">
+        insert into question_file (name, question_type_id, create_time, deleted) values (#{name}, #{questionType}, now(), 0)
+    </insert>
+
+    <update id="updateQuestionFile">
+        update question_file set name = #{name} where id = #{id} and deleted = 0
+    </update>
+
+    <update id="deleteQuestionFile" parameterType="Integer">
+        update question_file set deleted = 1 where id = #{id}
+    </update>
+
+    <select id="getCountByCourse" parameterType="Integer" resultType="Integer">
+        select count(id) from course where question_type = #{question_type}
+    </select>
+
+    <insert id="addCourse" parameterType="boot.wx.entity.Course">
+        insert into course (question_type, c_title, c_slogan, c_content, c_list, c_img, deleted) values (#{course.questionTypeId}, #{course.c_title}, #{course.c_slogan}, #{course.c_content}, #{course.c_list}, #{course.c_img}, 0)
+    </insert>
+
+    <select id="getCountByGuide" parameterType="Integer" resultType="Integer">
+        select count(id) from guide where question_type = #{question_type}
+    </select>
+
+    <insert id="addGuide" parameterType="Guide">
+        insert into guide (question_type, c_title, c_slogan, content, c_img, deleted) values (#{guide.questionTypeId}, #{guide.c_title}, #{guide.c_slogan}, #{guide.content}, #{guide.c_img}, 0)
+    </insert>
+</mapper>
