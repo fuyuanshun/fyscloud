@@ -33,22 +33,27 @@ spring:
             # 规则类型
             rule-type: flow
 
-
   # 数据源配置
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${db.url}
-    username: ${db.username}
-    password: ${db.password}
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${db.url}
+      username: ${db.username}
+      password: ${db.password}
+    slave:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/wx_question2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong
+      username: ${db.username}
+      password: ${db.password}
 
-# mybatis配置
-mybatis:
-  # 配置实体类别名
-  type-aliases-package: boot.wx.entity
-# mybatis-plus配置
-mybatis-plus:
-  # 配置实体类别名
-  type-aliases-package: boot.wx.entity
+## mybatis配置
+#mybatis:
+#  # 配置实体类别名
+#  type-aliases-package: boot.wx.entity
+## mybatis-plus配置
+#mybatis-plus:
+#  # 配置实体类别名
+#  type-aliases-package: boot.wx.entity
 
 # feign调用超时时间
 ribbon:

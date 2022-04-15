@@ -3,15 +3,15 @@ package boot.wx.service.impl;
 import boot.wx.constants.QuestionConstants;
 import boot.wx.entity.*;
 import boot.wx.flowlimit.QuestionAdminFlowLimit;
-import boot.wx.persistence.QuestionAdminMapper;
+import boot.wx.persistence.master.QuestionAdminMapper;
+import boot.wx.persistence.slave.Test;
 import boot.wx.service.IQuestionAdminService;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import io.micrometer.core.instrument.util.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -24,8 +24,20 @@ public class QuestionAdminService implements IQuestionAdminService {
     @Autowired
     private QuestionAdminMapper mapper;
 
+    @Autowired
+    private Test testMapper;
+
     private static final String ADMIN_USERNAME = "admin";
     private static final String ADMIN_PASSWORD = "chushimei";
+
+    @Override
+    @Transactional
+    public String testXA() {
+        mapper.addn();
+//        int i = 1/0;
+        testMapper.add();
+        return null;
+    }
 
     @Override
     @SentinelResource("t3")

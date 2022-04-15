@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@MapperScan("boot.wx.persistence")
+//@MapperScan("boot.wx.persistence")
 @EnableFeignClients
 public class AdminApplicationMain extends SpringBootServletInitializer {
     public static void main(String[] args) {

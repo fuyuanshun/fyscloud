@@ -7,9 +7,7 @@ import boot.wx.service.UserService;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -27,8 +25,10 @@ public class QuestionAdminController {
     @Autowired
     private UserService userService;
 
-    @Value("${server.port}")
-    private Integer serverPort;
+    @GetMapping("/test/xa")
+    public String testXA(){
+        return service.testXA();
+    }
 
     @GetMapping("/test/remote/{str}")
     public String testRemote(@PathVariable("str") String str){

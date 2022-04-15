@@ -37,4 +37,6 @@ public interface IQuestionAdminService {
     CommentResult<Integer> addGuide(Guide guide);
 
     String test(String str);
+
+    String testXA();
 }
