@@ -18,7 +18,7 @@ spring:
       # 路由信息
       routes:
         - id: user-server
-          uri: lb://admin-server
+          uri: lb://user-server
           predicates:
             - Path=/api/user/**
           filters:
