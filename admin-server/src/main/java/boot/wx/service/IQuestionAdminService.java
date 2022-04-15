@@ -35,4 +35,6 @@ public interface IQuestionAdminService {
     CommentResult<Integer> addCourse(Course course);
 
     CommentResult<Integer> addGuide(Guide guide);
+
+    String test(String str);
 }

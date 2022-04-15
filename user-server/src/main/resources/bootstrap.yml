@@ -20,6 +20,8 @@ spring:
       transport:
         dashboard: localhost:9005
         port: 8719
+#      web-context-unify: false
+
   # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

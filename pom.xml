@@ -85,10 +85,17 @@
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
             </dependency>
+            <!-- sentinel服务限流、熔断 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            <!-- sentinel持久化 -->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>${sentinel.version}</version>
             </dependency>
             <!-- cloud组件 end -->
             <!-- mysql -->

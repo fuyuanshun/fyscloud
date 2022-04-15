@@ -40,6 +40,21 @@ public class QuestionAdminController {
         return userInfoConfig.toString();
     }
 
+    @GetMapping("/t1/{id}")
+    @SentinelResource("t1")
+    public String t1(@PathVariable("id") Integer id){
+        if (id < 1) {
+            throw new RuntimeException();
+        }
+        return userService.test("str");
+    }
+
+    @GetMapping("/t2")
+    @SentinelResource("t2")
+    public String t2(){
+        return userService.test("str");
+    }
+
     /**
      *  管理员登陆
      */
