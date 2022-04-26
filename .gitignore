@@ -1,5 +1,6 @@
-# .idea
+# idea file
 .idea
+*.iml
 # 编译后的目录
 **/target/
 # 分布式事务日志
