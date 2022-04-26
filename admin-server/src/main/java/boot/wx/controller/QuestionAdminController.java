@@ -5,15 +5,18 @@ import boot.wx.properties.UserInfoConfig;
 import boot.wx.service.IQuestionAdminService;
 import boot.wx.service.UserService;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
 @Slf4j
+@Api(tags = "管理员")
 public class QuestionAdminController {
 
     @Autowired
@@ -26,8 +29,8 @@ public class QuestionAdminController {
     private UserService userService;
 
     @GetMapping("/test/xa")
-    public String testXA(){
-        return service.testXA();
+    public Mono<String> testXA(){
+        return Mono.just(service.testXA());
     }
 
     @GetMapping("/test/remote/{str}")

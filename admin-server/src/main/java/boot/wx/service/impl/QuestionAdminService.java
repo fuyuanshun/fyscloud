@@ -34,9 +34,8 @@ public class QuestionAdminService implements IQuestionAdminService {
     @Transactional
     public String testXA() {
         mapper.addn();
-//        int i = 1/0;
         testMapper.add();
-        return null;
+        return "success";
     }
 
     @Override

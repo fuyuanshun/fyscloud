@@ -37,6 +37,8 @@
         <hutool.version>5.3.2</hutool.version>
         <fastjson.version>1.2.73</fastjson.version>
         <apache.commons.version>3.12.0</apache.commons.version>
+        <!-- swagger -->
+        <knife4j.swagger.version>3.0.3</knife4j.swagger.version>
     </properties>
 
     <!-- 同一版本定义pom -->
@@ -134,6 +136,11 @@
                 <version>${fastjson.version}</version>
             </dependency>
             <!-- 常用第三方 end -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.swagger.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
