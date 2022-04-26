@@ -5,6 +5,7 @@ import boot.wx.service.IQuestionService;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
+@Api(tags = "用户模块")
 public class QuestionController {
 
     @Autowired

@@ -6,17 +6,17 @@ import boot.wx.service.IQuestionAdminService;
 import boot.wx.service.UserService;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Mono;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
 @Slf4j
-@Api(tags = "管理员")
+@Api(tags = "管理员题库管理")
 public class QuestionAdminController {
 
     @Autowired
@@ -28,39 +28,19 @@ public class QuestionAdminController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/test/xa")
-    public Mono<String> testXA(){
-        return Mono.just(service.testXA());
-    }
-
+    @ApiOperation("测试openfeign远程调用")
     @GetMapping("/test/remote/{str}")
     public String testRemote(@PathVariable("str") String str){
         return userService.test(str);
     }
 
+    @ApiOperation("测试Nacos统一配置中心")
     @GetMapping("/refresh/get")
     public String refreshConfig(){
         return userInfoConfig.toString();
     }
 
-    @GetMapping("/t1/{id}")
-    @SentinelResource("t1")
-    public String t1(@PathVariable("id") Integer id){
-        if (id < 1) {
-            throw new RuntimeException();
-        }
-        return userService.test("str");
-    }
-
-    @GetMapping("/t2")
-    @SentinelResource("t2")
-    public String t2(){
-        return userService.test("str");
-    }
-
-    /**
-     *  管理员登陆
-     */
+    @ApiOperation("管理员登录")
     @PostMapping("/admin/login")
     public CommentResult<String> login(@RequestParam("username") String username, @RequestParam("password") String password,
                                        HttpSession session){
