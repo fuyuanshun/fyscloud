@@ -3,4 +3,4 @@
 # 编译后的目录
 **/target/
 # 分布式事务日志
-transaction-logs
+**/transaction-logs
