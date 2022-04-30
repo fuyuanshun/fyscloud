@@ -8,6 +8,8 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.client.indices.GetIndexResponse;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -24,8 +26,12 @@ public class ESClientTest {
      */
     private static final Integer ES_PORT = 9200;
 
+    private final static Logger logger = LoggerFactory.getLogger(ESClientTest.class);
+
+
     @Test
     public void esClientTest() throws IOException {
+        logger.info("AAAAAAAAAAAAAAAAAAAAAAAA");
         RestClientBuilder resetClient = RestClient
                 .builder(new HttpHost(ES_ADDR, ES_PORT));
         RestHighLevelClient client = new RestHighLevelClient(resetClient);
