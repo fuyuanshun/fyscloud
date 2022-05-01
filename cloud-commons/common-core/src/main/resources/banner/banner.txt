@@ -8,4 +8,5 @@ ${AnsiColor.BRIGHT_YELLOW}
   ░██    ██      ██████
   ░░    ░░      ░░░░░░
 
-Version: ${spring-boot.version}
+${AnsiColor.BLUE}
+Spring Boot Version: ${spring-boot.version}

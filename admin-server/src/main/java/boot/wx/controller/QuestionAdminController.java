@@ -44,6 +44,7 @@ public class QuestionAdminController {
     @PostMapping("/admin/login")
     public CommentResult<String> login(@RequestParam("username") String username, @RequestParam("password") String password,
                                        HttpSession session){
+        log.info("login...");
         return service.login(username, password, session);
     }
 

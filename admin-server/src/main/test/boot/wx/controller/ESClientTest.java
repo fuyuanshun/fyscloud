@@ -1,5 +1,6 @@
 package boot.wx.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
@@ -16,6 +17,7 @@ import java.io.IOException;
 /**
  * es测试
  */
+@Slf4j
 public class ESClientTest {
     /**
      * es地址
@@ -26,12 +28,11 @@ public class ESClientTest {
      */
     private static final Integer ES_PORT = 9200;
 
-    private final static Logger logger = LoggerFactory.getLogger(ESClientTest.class);
-
-
     @Test
     public void esClientTest() throws IOException {
-        logger.info("AAAAAAAAAAAAAAAAAAAAAAAA");
+        log.debug("DEBUG");
+        log.info("INFO");
+        log.error("ERROR");
         RestClientBuilder resetClient = RestClient
                 .builder(new HttpHost(ES_ADDR, ES_PORT));
         RestHighLevelClient client = new RestHighLevelClient(resetClient);

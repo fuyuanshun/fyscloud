@@ -3,5 +3,6 @@
 *.iml
 # 编译后的目录
 **/target/
-# 分布式事务日志
+# 日志
 **/transaction-logs
+**/logs
