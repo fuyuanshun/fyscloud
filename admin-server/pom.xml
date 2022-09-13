@@ -22,6 +22,10 @@
             <groupId>com.fys</groupId>
             <artifactId>common-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fys</groupId>
+            <artifactId>common-redis</artifactId>
+        </dependency>
         <!-- 自己定义的通用包 end -->
         <!-- web通用pom start -->
         <dependency>

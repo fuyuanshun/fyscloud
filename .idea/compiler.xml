@@ -9,11 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-config" />
         <module name="admin-server" />
+        <module name="common-redis" />
         <module name="user-server" />
         <module name="cloud-gateway" />
         <module name="common-core" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springdata" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -21,6 +25,7 @@
       <module name="cloud-commons" options="" />
       <module name="cloud-config" options="" />
       <module name="common-core" options="" />
+      <module name="common-redis" options="" />
       <module name="user-server" options="" />
     </option>
   </component>
