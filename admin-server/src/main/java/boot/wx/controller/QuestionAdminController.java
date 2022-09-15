@@ -1,16 +1,17 @@
 package boot.wx.controller;
 
 import boot.wx.entity.*;
-import boot.wx.properties.UserInfoConfig;
 import boot.wx.service.IQuestionAdminService;
 import boot.wx.service.UserService;
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -23,21 +24,12 @@ public class QuestionAdminController {
     private IQuestionAdminService service;
 
     @Autowired
-    private UserInfoConfig userInfoConfig;
-
-    @Autowired
     private UserService userService;
 
     @ApiOperation("测试openfeign远程调用")
     @GetMapping("/test/remote/{str}")
     public String testRemote(@PathVariable("str") String str){
         return userService.test(str);
-    }
-
-    @ApiOperation("测试Nacos统一配置中心")
-    @GetMapping("/refresh/get")
-    public String refreshConfig(){
-        return userInfoConfig.toString();
     }
 
     @ApiOperation("管理员登录")
@@ -174,5 +166,14 @@ public class QuestionAdminController {
     @PostMapping("/admin/question/guide")
     public CommentResult<Integer> addGuide(@RequestBody Guide guide){
         return service.addGuide(guide);
+    }
+
+    @Resource
+    private JedisPool jedisPool;
+
+    @GetMapping("/test/redis")
+    public void redis(@RequestParam("key") String key, @RequestParam("value") String value, @RequestParam("score") Integer score){
+        Jedis jedis = jedisPool.getResource();
+        jedis.set(key, value);
     }
 }
