@@ -32,6 +32,12 @@ spring:
             data_type: json
             # 规则类型
             rule-type: flow
+  # redis配置
+  redis:
+    database: ${redis.database}
+    host: ${redis.host}
+    port: ${redis.port}
+    password: ${redis.password}
 
   # 数据源配置
   datasource:
