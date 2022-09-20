@@ -102,12 +102,6 @@
         </dependency>
         <!-- knife4j-swagger end -->
 
-        <!-- elasticsearch -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-        </dependency>
-
         <!-- springboot 单元测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

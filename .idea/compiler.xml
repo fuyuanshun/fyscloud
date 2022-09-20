@@ -8,11 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-config" />
+        <module name="user-server" />
         <module name="admin-server" />
         <module name="common-redis" />
-        <module name="user-server" />
         <module name="cloud-gateway" />
         <module name="common-core" />
+        <module name="common-elasticsearch" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

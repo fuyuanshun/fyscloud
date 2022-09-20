@@ -3,18 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.fys</groupId>
-        <artifactId>fyscloud</artifactId>
+        <artifactId>cloud-commons</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cloud-commons</artifactId>
-    <packaging>pom</packaging>
-    <description>通用组件模块</description>
+    <artifactId>common-elasticsearch</artifactId>
+    <description>ECS组件</description>
 
-    <modules>
-        <module>common-core</module>
-        <module>common-redis</module>
-        <module>common-elasticsearch</module>
-    </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+    </dependencies>
 </project>
