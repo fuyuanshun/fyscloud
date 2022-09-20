@@ -19,8 +19,8 @@ spring:
     # sentinel控制台端口
     sentinel:
       transport:
-        dashboard: localhost:9005
-        port: 8719
+        dashboard: ${sentinel.transport.dashboard.url}
+        port: ${sentinel.transport.port}
 #      web-context-unify: false
       datasource:
         fys:
@@ -48,7 +48,7 @@ spring:
       password: ${db.password}
     slave:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/wx_question2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Hongkong
+      url: ${db.url}
       username: ${db.username}
       password: ${db.password}
 

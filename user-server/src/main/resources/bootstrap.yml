@@ -18,8 +18,8 @@ spring:
     # sentinel控制台端口
     sentinel:
       transport:
-        dashboard: localhost:9005
-        port: 8719
+        dashboard: ${sentinel.transport.dashboard.url}
+        port: ${sentinel.transport.port}
 #      web-context-unify: false
 
   # 数据源配置
