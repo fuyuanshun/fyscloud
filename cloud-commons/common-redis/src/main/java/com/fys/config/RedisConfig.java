@@ -14,12 +14,15 @@ import redis.clients.jedis.JedisPoolConfig;
  * @date 2022/9/20
  * @description
  */
-@Configuration
 @EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig {
 
-    @Autowired
     private RedisProperties redisProperties;
+
+    @Autowired
+    public void setRedisProperties(RedisProperties redisProperties) {
+        this.redisProperties = redisProperties;
+    }
 
     @Bean
     public JedisPoolConfig jedisPoolConfig() {

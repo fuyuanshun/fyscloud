@@ -9,13 +9,15 @@ spring:
     nacos:
       # nacos服务注册中心配置
       discovery:
-        server-addr: ${nacos.discovery.server-addr}
         namespace: ${nacos.discovery.namespace}
       # nacos统一配置中心配置
       config:
-        server-addr: ${nacos.config.server-addr}
         namespace: ${nacos.config.namespace}
         file-extension: yml
+      server-addr: ${nacos.config.server-address}
+      username: ${nacos.config.username}
+      password: ${nacos.config.password}
+
     # sentinel控制台端口
     sentinel:
       transport:
@@ -32,12 +34,6 @@ spring:
             data_type: json
             # 规则类型
             rule-type: flow
-  # redis配置
-  redis:
-    database: ${redis.database}
-    host: ${redis.host}
-    port: ${redis.port}
-    password: ${redis.password}
 
   # 数据源配置
   datasource:
