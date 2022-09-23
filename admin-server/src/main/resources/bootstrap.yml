@@ -14,6 +14,7 @@ spring:
       config:
         namespace: ${nacos.config.namespace}
         file-extension: yml
+      # nacos地址与账号信息
       server-addr: ${nacos.config.server-address}
       username: ${nacos.config.username}
       password: ${nacos.config.password}
@@ -23,7 +24,9 @@ spring:
       transport:
         dashboard: ${sentinel.transport.dashboard.url}
         port: ${sentinel.transport.port}
-#      web-context-unify: false
+        # web-context-unify: false
+
+      #sentinel持久化配置
       datasource:
         fys:
           nacos:

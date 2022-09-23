@@ -15,19 +15,42 @@ spring:
       config:
         server-addr: ${nacos.config.server-addr}
         namespace: ${nacos.config.namespace}
+      # nacos地址与账号信息
+      server-addr: ${nacos.config.server-address}
+      username: ${nacos.config.username}
+      password: ${nacos.config.password}
+
     # sentinel控制台端口
     sentinel:
       transport:
         dashboard: ${sentinel.transport.dashboard.url}
         port: ${sentinel.transport.port}
-#      web-context-unify: false
+        # web-context-unify: false
+
+        #sentinel持久化配置
+        datasource:
+          fys:
+            nacos:
+              server-addr: ${nacos.config.server-addr}
+              namespace: ${nacos.config.namespace}
+              dataId: sentinel-config
+              groupId: DEFAULT_GROUP
+              data_type: json
+              # 规则类型
+              rule-type: flow
 
   # 数据源配置
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${db.url}
-    username: ${db.username}
-    password: ${db.password}
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${db.url}
+      username: ${db.username}
+      password: ${db.password}
+    slave:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${db.url}
+      username: ${db.username}
+      password: ${db.password}
 
 # mybatis配置
 mybatis:
