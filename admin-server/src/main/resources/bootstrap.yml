@@ -41,15 +41,15 @@ spring:
   # 数据源配置
   datasource:
     master:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: ${db.url}
-      username: ${db.username}
-      password: ${db.password}
+      driver-class-name: ${db.master.driverClassName}
+      url: ${db.master.url}
+      username: ${db.master.username}
+      password: ${db.master.password}
     slave:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: ${db.url}
-      username: ${db.username}
-      password: ${db.password}
+      driver-class-name: ${db.slave.driverClassName}
+      url: ${db.slave.url}
+      username: ${db.slave.username}
+      password: ${db.slave.password}
 
 ## mybatis配置
 #mybatis:

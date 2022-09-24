@@ -68,6 +68,11 @@
                 <artifactId>common-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.fys</groupId>
+                <artifactId>common-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- 自己定义的通用包 end -->
             <!-- spring-boot -->
             <dependency>

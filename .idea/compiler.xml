@@ -14,6 +14,7 @@
         <module name="cloud-gateway" />
         <module name="common-core" />
         <module name="common-elasticsearch" />
+        <module name="common-db" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,6 +27,7 @@
       <module name="cloud-commons" options="" />
       <module name="cloud-config" options="" />
       <module name="common-core" options="" />
+      <module name="common-db" options="" />
       <module name="common-redis" options="" />
       <module name="user-server" options="" />
     </option>
