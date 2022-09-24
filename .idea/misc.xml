@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/cloud-commons/common-core/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-commons/common-redis/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-commons/common-db/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-commons/common-swagger/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

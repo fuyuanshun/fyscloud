@@ -10,6 +10,7 @@
         <module name="cloud-config" />
         <module name="user-server" />
         <module name="admin-server" />
+        <module name="common-swagger" />
         <module name="common-redis" />
         <module name="cloud-gateway" />
         <module name="common-core" />
@@ -29,6 +30,7 @@
       <module name="common-core" options="" />
       <module name="common-db" options="" />
       <module name="common-redis" options="" />
+      <module name="common-swagger" options="" />
       <module name="user-server" options="" />
     </option>
   </component>

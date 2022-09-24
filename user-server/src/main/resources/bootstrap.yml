@@ -9,16 +9,15 @@ spring:
     nacos:
       # nacos服务注册中心配置
       discovery:
-        server-addr: ${nacos.discovery.server-addr}
         namespace: ${nacos.discovery.namespace}
       # nacos统一配置中心配置
       config:
-        server-addr: ${nacos.config.server-addr}
         namespace: ${nacos.config.namespace}
+        file-extension: yml
       # nacos地址与账号信息
-      server-addr: ${nacos.config.server-address}
-      username: ${nacos.config.username}
-      password: ${nacos.config.password}
+      server-addr: ${nacos.server-address}
+      username: ${nacos.username}
+      password: ${nacos.password}
 
     # sentinel控制台端口
     sentinel:
@@ -42,15 +41,15 @@ spring:
   # 数据源配置
   datasource:
     master:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: ${db.url}
-      username: ${db.username}
-      password: ${db.password}
+      driver-class-name: ${db.master.driverClassName}
+      url: ${db.master.url}
+      username: ${db.master.username}
+      password: ${db.master.password}
     slave:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: ${db.url}
-      username: ${db.username}
-      password: ${db.password}
+      driver-class-name: ${db.slave.driverClassName}
+      url: ${db.slave.url}
+      username: ${db.slave.username}
+      password: ${db.slave.password}
 
 # mybatis配置
 mybatis:

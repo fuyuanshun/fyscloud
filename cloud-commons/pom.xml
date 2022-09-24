@@ -16,6 +16,7 @@
         <module>common-redis</module>
         <module>common-elasticsearch</module>
         <module>common-db</module>
+        <module>common-swagger</module>
     </modules>
 
 </project>

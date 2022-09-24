@@ -22,6 +22,10 @@
             <groupId>com.fys</groupId>
             <artifactId>common-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fys</groupId>
+            <artifactId>common-swagger</artifactId>
+        </dependency>
         <!-- 自己定义的通用包 end -->
         <!-- web通用pom start -->
         <dependency>
@@ -76,15 +80,10 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-        <!-- knife4j-swagger start -->
+        <!-- 分布式事务-atomikos -->
         <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jta-atomikos</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-        <!-- knife4j-swagger end -->
     </dependencies>
 </project>
