@@ -15,7 +15,7 @@ spring:
         namespace: ${nacos.config.namespace}
         file-extension: yml
       # nacos地址与账号信息
-      server-addr: ${nacos.server-address}
+      server-addr: ${nacos.config.server-addr}
       username: ${nacos.username}
       password: ${nacos.password}
 
